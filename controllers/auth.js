@@ -65,18 +65,20 @@ exports.login = async (req, res, next) => {
       email: loadedUser.email,
       userId: loadedUser._id.toString(),
     },
-    'secret',
-    { expiresIn: '1h' }
+      'secret',
+      { expiresIn: '1h' }
     )
-    return res.status(200).json({
+    res.status(200).json({
       token: token,
       userId: loadedUser._id.toString()
     })
+    return
   } catch (err) {
     if (!err.statusCode) {
       err.statusCode = 500
     }
     next(err)
+    return err
   }
 }
 
