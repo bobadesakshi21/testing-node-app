@@ -1,6 +1,5 @@
 /* eslint-disable no-undef */
 const expect = require('chai').expect
-const sinon = require('sinon')
 const mongoose = require('mongoose')
 
 const User = require('../models/user')
